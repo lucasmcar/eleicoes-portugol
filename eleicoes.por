@@ -95,7 +95,7 @@ programa
 				pbrancos = (totalbrancos * 100)/totalvotos
 				urnas = pcand1 + pcand2 + pcand3 + pcand4 + pnulos + pbrancos
 			}enquanto(cand != 2) //Se a opção for 2, encerra a urna
-
+               limpa()
 			
 			escreva("Urna Encerrada \n")
 			escreva("################# \n")
@@ -107,18 +107,79 @@ programa
 			escreva("Total de votos nulos foram: ", totalnulos, " e a porcentagem atiginda foi: ", mat.arredondar(pnulos,2),"% \n")
 			escreva("Total de votos brancos foram: ", totalbrancos, " e a porcentagem atiginda foi: ", mat.arredondar(pbrancos,2),"% \n")
 			escreva("Urnas apuradas: ", urnas, "% \n")
+
+
+			//Chamada do método
+			tabelaUrna(pcand1, pcand2, pcand3, pcand4, totalcand1,  
+			totalcand2, totalcand3, totalcand4, urnas, totalvotos, 
+			pnulos, pbrancos, totalnulos, totalbrancos)
+			
+
+		}
+
+		//Método que verifica a posição do candidato
+		funcao tabelaUrna(real pcandidato1, real pcandidato2, 
+		real pcandidato3, real pcandidato4, real tcandidato1, 
+		real tcandidato2, 
+		real tcandidato3, real tcandidato4, real urna, inteiro totvotos, real pnulos, real pbrancos, real totnulos, real totbrancos)
+		
+		{
+			se(pcandidato1 > pcandidato2 e pcandidato3 > pcandidato4 e pcandidato2 > pcandidato4)
+			{
+				criaLinhas()
+				escreva("|\t\t\t\t Ranking das Eleiçoes \t\t\t\t|\n")
+				criaLinhas()
+				escreva("|\t Posição \t|\t Partido \t|\t % \t|\t Totais |\n")
+				criaLinhas()
+				escreva("|\t 1º Lugar \t|\t PT \t\t|\t"+ mat.arredondar(pcandidato1,2) +"% \t|\t" + tcandidato1 +"\t|\n")
+				criaLinhas()
+				escreva("|\t 2º Lugar \t|\t PSDB\t\t|\t" + mat.arredondar(pcandidato2,2) +"% \t|\t"+ tcandidato2 +"\t|\n")
+				criaLinhas()
+				escreva("|\t 3º Lugar \t|\t PSOL \t\t|\t" +  mat.arredondar(pcandidato3,2) +"\t|\t" + tcandidato3 + "\t|\n")
+				criaLinhas()
+				escreva("|\t 4º Lugar \t|\t NOVO \t\t|\t" + mat.arredondar(pcandidato4,2) + "\t|\t" + tcandidato4+"\t|\n")
+				criaLinhas()
+				escreva("|\t Brancos \t|\t BRANCOS \t|\t" + mat.arredondar(pbrancos,2) + "\t|\t"+ totbrancos +"\t|\n")
+				criaLinhas()
+				escreva("|\t Nulos 	 \t|\t NULOS \t\t|\t"+ mat.arredondar(pnulos,2) + "\t|\t" + totnulos + "\t|\n")
+				criaLinhas()
+				escreva("|\t Totais \t|\t\t" + mat.arredondar(urna, 2)+ "% \t\t|\t\t" + totvotos + "\t|\n")
+				criaLinhas()
+			
+			}
+			/*senao se(pcand1 > pcand2 e pcand3 < pcand4 e pcand2 > pcand4)
+			{
+				criaLinhas()
+				escreva("|\t\t\t\t Ranking das Eleiçoes \t\t\t\t|\n")
+				criaLinhas()
+				escreva("|\t Posição \t|\t Partido \t|\t % \t|\t Totais |\n")
+				criaLinhas()
+				escreva("|\t 1º Lugar \t|\t PT \t\t|\t"+ mat.arredondar(pcand1,2) +"% \t|\t" + totalcand1 +"\t|\n")
+				criaLinhas()
+				escreva("|\t 2º Lugar \t|\t PSDB\t\t|\t" + mat.arredondar(pcand2,2) +"% \t|\t"+ totalcand2 +"\t|\n")
+				criaLinhas()
+				escreva("|\t 3º Lugar \t|\t NOVO \t\t|\t" +  mat.arredondar(pcand4,2) +"\t|\t" + totalcand3 + "\t|\n")
+				criaLinhas()
+				escreva("|\t 4º Lugar \t|\t PSOL \t\t|\t" + mat.arredondar(pcand3,2) + "\t|\t" + totalcand4+"\t|\n")
+				criaLinhas()
+				escreva("|\t Brancos \t|\t BRANCOS \t|\n")
+				criaLinhas()
+				escreva("|\t Nulos 	 \t|\t NULOS \t|\n")
+				criaLinhas()
+				escreva("|\t Totais \t|\t\t" + mat.arredondar(urnas, 2)+ "% \t\t|\t\t" + totalvotos + "\t|\n")
+				criaLinhas()
+			}*/
+		}
+
+		
+		funcao criaLinhas()
+		{
+			para (inteiro i = 0; i<=80; i++)
+			{
+				escreva("-")	
+			}
+			escreva("\n")
 		}
 		
 	
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 3038; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
